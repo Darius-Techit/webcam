@@ -37,36 +37,31 @@
     <h3>Demonstrates 720p HD capture (1280x720), if your camera supports it!</h3>
 
     <div id="my_camera"></div>
-
-    <!-- First, include the Webcam.js JavaScript Library -->
-    <script type="text/javascript" src="js/webcam.min.js"></script>
-
-    <!-- Configure a few settings and attach camera -->
-    <script language="JavaScript">
-        Webcam.set({
-            width: 1280,
-            height: 720,
-            image_format: 'jpeg',
-            jpeg_quality: 90,
-            constraints: {
-                width: {
-                    exact: 1280
-                },
-                height: {
-                    exact: 720
-                }
-            }
-        });
-        Webcam.attach('#my_camera');
-    </script>
-
-    <!-- A button for taking snaps -->
     <form>
         <input type=button value="Take HD Snapshot" onClick="take_snapshot()">
     </form>
 
-    <!-- Code to handle taking the snapshot and displaying it locally -->
+    <div id="results">Your captured image will appear here...</div>
+
+    <script type="text/javascript" src="js/webcam.min.js"></script>
+
     <script language="JavaScript">
+    Webcam.set({
+        width: 1280,
+        height: 720,
+        image_format: 'jpeg',
+        jpeg_quality: 90,
+        constraints: {
+            width: {
+                exact: 1280
+            },
+            height: {
+                exact: 720
+            }
+        }
+    });
+    Webcam.attach('#my_camera');
+
         function take_snapshot() {
             // take snapshot and get image data
             Webcam.snap(function(data_uri) {
@@ -78,7 +73,7 @@
         }
     </script>
 
-    <div id="results">Your captured image will appear here...</div>
+
 
 </body>
 
